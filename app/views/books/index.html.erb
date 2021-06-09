@@ -9,7 +9,16 @@
     <div class='col-md-8 offset-md-1'>
       
       <h2>Books</h2>
-      <%= render 'index', books: @books %>
+      
+      <%= link_to '新しい順', books_path(sort: 'date') %>|
+      <%= link_to '評価が高い順', books_path(sort: 'rate') %>
+      <div>
+        <% if  %>
+          <%= render 'index', books: @books %>
+        <% else %>
+          <%= render 'index', books: @books %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

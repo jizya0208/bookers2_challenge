@@ -1,3 +1,6 @@
+
+
+
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
@@ -16,15 +19,15 @@
         </td>
         <td><%= link_to book.title, book_path(book), class: "book_#{book.id}" %></td>
         <td><%= book.body %></td>
-        
+
         <td id="favorite_btn-<%= book.id %>">
           <%= render 'favorites/favorite_btn', book: book %>
         </td>
-        
+
         <td>
           コメント数：<%= book.book_comments.count %>
         </td>
-        
+
         <td>
           <div id="rate_<%= book.id %>"></div>
           <script>
@@ -39,9 +42,9 @@
           });
           </script>
 				</td>
-				
+
       </tr>
     <% end %>
-    
+
   </tbody>
 </table>

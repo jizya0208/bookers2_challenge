@@ -17,3 +17,11 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$('.sort_desc_by_rate_button').on('click', function(){
+  $('.sort_desc_by_date_button').removeClass('sort');
+});
+
+$('.sort_desc_by_date_button').on('click', function(){
+  $('.sort_desc_by_rate_button').removeClass('sort');
+});

@@ -28,7 +28,16 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
-    @books = Book.all
+    case sort_params[:sort]
+    when 'date'
+      @books = Book.sort_desc_by_date
+    when 'rate'
+      @books = Book.sort_desc_by_rate
+    else
+      one_week_ago = Date.today - 7
+      @books = Book.all.sort {|a,b| b.favorites.where("created_at > ?", one_week_ago).size <=> a.favorites.where("created_at > ?", one_week_ago).size}
+    end
+
     # 直近のいいね 数の多さで並べ替えるときの記述
     # one_week_ago = Date.today - 7
     # @books = Book.all.sort {|a,b| b.favorites.where("created_at > ?", one_week_ago).size <=> a.favorites.where("created_at > ?", one_week_ago).size}
@@ -70,10 +79,16 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :body, :rate)
   end
 
+
+  def sort_params
+    params.permit(:sort)
+  end
+
   def ensure_correct_user
     @book = Book.find(params[:id])
     unless @book.user_id == current_user.id
       redirect_to books_path
     end
   end
+
 end
