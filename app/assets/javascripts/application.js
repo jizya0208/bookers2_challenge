@@ -10,6 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require chartkick
+//= require Chart.bundle
+
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
@@ -18,10 +21,3 @@
 //= require turbolinks
 //= require_tree .
 
-$('.sort_desc_by_rate_button').on('click', function(){
-  $('.sort_desc_by_date_button').removeClass('sort');
-});
-
-$('.sort_desc_by_date_button').on('click', function(){
-  $('.sort_desc_by_rate_button').removeClass('sort');
-});

@@ -41,7 +41,7 @@
           </td>
           <% if @book.user_id === current_user.id %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
-            <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
+          <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
           <% end %>
         </tr>
       </table>
@@ -57,39 +57,39 @@
       <%= render partial: 'book_comments/form', locals: {book: @book, book_comment: @book_comment} %>
     </div>
 
-    <h3>投稿数の前日比・前週比</h3>
+<!--    <h3>投稿数の前日比・前週比</h3>-->
 
-<table class="table">
-  <row>
-    <thead>
-      <th>今日の投稿数</th>
-      <th>前日の投稿数</th>
-      <th>前日比</th>
-    </thead>
-  <row>
-  <row>
-    <tbody>
-      <td><%= @book_today %></td>
-      <td><%= @book_yesterday %></td>
-      <td><%= @previous_day_ratio %>%</td>
-    </tbody>
-  </row>
-  <row>
-    <thead>
-      <th>今週の投稿数</th>
-      <th>先週の投稿数</th>
-      <th>前週比</th>
-    </thead>
-  </row>
-  <row>
-    <tbody>
-      <td><%= @book_this_week %></td>
-      <td><%= @book_last_week %></td>
-      <td><%= @previous_week_ratio %>%</td>
-    </tbody>
-  </row>
-</table>
+<!--<table class="table">-->
+<!--  <row>-->
+<!--    <thead>-->
+<!--      <th>今日の投稿数</th>-->
+<!--      <th>前日の投稿数</th>-->
+<!--      <th>前日比</th>-->
+<!--    </thead>-->
+<!--  <row>-->
+<!--  <row>-->
+<!--    <tbody>-->
+<!--      <td>%= @book_today %></td>-->
+<!--      <td>%= @book_yesterday %></td>-->
+<!--      <td>%= @previous_day_ratio %>%</td>-->
+<!--    </tbody>-->
+<!--  </row>-->
+<!--  <row>-->
+<!--    <thead>-->
+<!--      <th>今週の投稿数</th>-->
+<!--      <th>先週の投稿数</th>-->
+<!--      <th>前週比</th>-->
+<!--    </thead>-->
+<!--  </row>-->
+<!--  <row>-->
+<!--    <tbody>-->
+<!--      <td>%= @book_this_week %></td>-->
+<!--      <td>%= @book_last_week %></td>-->
+<!--      <td>%= @previous_week_ratio %>%</td>-->
+<!--    </tbody>-->
+<!--  </row>-->
+<!--</table>-->
 
-    </div>
-  </div>
-</div>
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
