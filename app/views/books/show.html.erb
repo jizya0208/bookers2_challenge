@@ -17,32 +17,46 @@
           </td>
           <td><%= link_to @book.title, book_path(@book) %></td>
           <td><%= @book.body %></td>
-          <% if @book.user_id === current_user.id %>
-          <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
-          <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
-          <% end %>
-          
+
           <td class="favorite_btn">
             <%= render 'favorites/favorite_btn', book: @book %>
           </td>
-          
+
           <td id="comment_count_<%= @book.id %>">
             コメント数：<%= @book.book_comments.count %>
           </td>
+          <td>
+            <div id="rate_<%= @book.id %>"></div>
+            <script>
+              $('#rate_<%= @book.id %>').raty({
+                size: 20,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                readOnly: true,
+                score: <%= @book.rate %>,
+              });
+            </script>
+          </td>
+          <% if @book.user_id === current_user.id %>
+            <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
+            <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
+          <% end %>
         </tr>
       </table>
-      
-      
+
+
   　<!--コメント一覧-->
   　<div class="book_comment_index">
   　  <%= render 'book_comments/index', book: @book %>
   　</div>
-  　
+
     <!--コメントフォーム-->
     <div class="book_comment_form">
       <%= render partial: 'book_comments/form', locals: {book: @book, book_comment: @book_comment} %>
     </div>
-    
+
     <h3>投稿数の前日比・前週比</h3>
 
 <table class="table">
@@ -75,7 +89,7 @@
     </tbody>
   </row>
 </table>
-    
+
     </div>
   </div>
 </div>
