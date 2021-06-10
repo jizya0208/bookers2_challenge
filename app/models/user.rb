@@ -20,7 +20,6 @@ class User < ApplicationRecord
   has_many :group_users
   has_many :group, through: :group_users 
   
-  
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end

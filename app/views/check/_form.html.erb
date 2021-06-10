@@ -1,0 +1,7 @@
+<%= form_with(url: user_check_path(user), method: :get) do |f| %>
+  <%= date_field_tag 'date' %>
+    <%= fields_for user do |u| %>
+      <%= u.hidden_field :user_id, value: user.id %>    <!--user.idを渡す-->
+    <% end %>
+  <%= f.submit "検索", class: "btn btn-success" %>
+<% end %>

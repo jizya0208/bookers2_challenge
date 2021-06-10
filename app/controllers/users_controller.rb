@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @last_week_book = @books.created_last_week
 
     # グラフ化のための変数
-    @book_by_day = @books.group_by_day.(:created_at).size #日毎の投稿データをグルーピング。ハッシュの形式になっている
+    @book_by_day = @books.group_by_day(:created_at).size #日毎の投稿データをグルーピング。ハッシュの形式になっている
     @chartlabels = @book_by_day.map(&:first).to_json.html_safe
     @chartdatas = @book_by_day.map(&:second)#日毎の投稿数の値のみ取得
 
