@@ -7,7 +7,6 @@ class SearchController < ApplicationController
   end
 
   def category_search
-    @user = 
     @book = Book.new
     @category = category(params[:category])
   end
