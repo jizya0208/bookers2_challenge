@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'home/about' => 'homes#about'
   get '/search', to: 'search#search'
+  get '/category', to: 'search#category_search', as: 'category_search'
 
 end

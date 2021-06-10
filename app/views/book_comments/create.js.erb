@@ -1,6 +1,6 @@
 $("#comment_count_<%= @book.id %>").html("コメント数: <%= @book.book_comments.count %>");
 
-$('.book_comment_index').html("<%= escape_javascript(render partial: 'book_comments/index', locals: {book: @book}) %>");
+$('index').html("<%= escape_javascript(render partial: 'book_comments/index', locals: {book: @book}) %>");
 
 $('.book_comment_form textarea').val('');
 <!--コメント送信後、フォーム入力欄を空にする-->
