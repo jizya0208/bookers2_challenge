@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
   
-  # フォロー機能
+  # フォロー機能 relationships,passive_relationshipsと便宜上名前をつけるが、実際の結付けはRelationshipモデル
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed    #ここで、フォローしてるユーザ一覧を定義
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
